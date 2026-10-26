@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents - DialIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/dashboard" class="sidebar-brand"><div class="logo" style="width: 36px; height: 36px;">📞</div><span>DialIQ</span></a>
+        </div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item"><a href="/dashboard" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span class="sidebar-nav-label">Dashboard</span></a></li>
+                <li class="sidebar-nav-item"><a href="/agents" class="sidebar-nav-link active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="sidebar-nav-label">AI Agents</span></a></li>
+                <li class="sidebar-nav-item"><a href="/campaigns" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13.67A5 5 0 0 0 18 9a5 5 0 0 0-8.87-2.17 3 3 0 0 0 0 5.66A5 5 0 0 1 18 15a5 5 0 0 1 3 7.34"></path><path d="M22 12h-4"></path></svg><span class="sidebar-nav-label">Campaigns</span></a></li>
+                <li class="sidebar-nav-item"><a href="/leads" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="sidebar-nav-label">Leads & CRM</span></a></li>
+                <li class="sidebar-nav-item"><a href="/calls" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span class="sidebar-nav-label">Call Logs</span></a></li>
+                <li class="sidebar-nav-item"><a href="/analytics" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span class="sidebar-nav-label">Analytics</span></a></li>
+                <li class="sidebar-nav-item"><a href="/wallet" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg><span class="sidebar-nav-label">Wallet & Billing</span></a></li>
+                <li class="sidebar-nav-item"><a href="/simulator" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span class="sidebar-nav-label">Call Simulator</span></a></li>
+                <li class="sidebar-nav-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-gold);"><a href="/settings" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span class="sidebar-nav-label">Settings</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="dashboard-header flex-between">
+            <div class="dashboard-title">
+                <h1>AI Agents</h1>
+                <p>Create and manage your AI telecalling agents</p>
+            </div>
+            <button class="btn btn-primary" onclick="openModal('agentModal')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Create Agent
+            </button>
+        </header>
+
+        <div class="grid grid-auto" id="agentsGrid">
+            <!-- Agents will be loaded here -->
+        </div>
+    </main>
+
+    <!-- Agent Modal -->
+    <div class="modal-overlay" id="agentModal">
+        <div class="modal" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="agentModalTitle">Create New Agent</h3>
+                <button class="modal-close" onclick="closeModal('agentModal')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <form id="agentForm" class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <input type="hidden" name="id" id="agentId">
+
+                <div class="grid grid-2" style="margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label class="form-label">Agent Name *</label>
+                        <input type="text" class="form-input" name="name" placeholder="e.g., Sales Assistant" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Language</label>
+                        <select class="form-select" name="language">
+                            <option value="en-IN">English (India)</option>
+                            <option value="hi-IN">Hindi</option>
+                            <option value="te-IN">Telugu</option>
+                            <option value="ta-IN">Tamil</option>
+                            <option value="hi-Latn-IN">Hinglish</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" name="description" placeholder="Brief description of this agent's purpose"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">System Prompt *</label>
+                    <textarea class="form-textarea" name="system_prompt" placeholder="Define the AI's personality, role, and behavior..." required style="min-height: 150px;"></textarea>
+                    <p class="form-help">This is the core instruction that defines how your AI agent behaves.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Greeting Message</label>
+                    <textarea class="form-textarea" name="greeting_message" placeholder="Hello! This is {{agent_name}} from {{company}}. How can I help you today?" style="min-height: 80px;"></textarea>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem; color: var(--accent-gold);">Voice Settings</h4>
+                <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label class="form-label">Speech Rate</label>
+                        <input type="range" class="form-input" name="speech_rate" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Pitch</label>
+                        <input type="range" class="form-input" name="pitch" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Volume</label>
+                        <input type="range" class="form-input" name="volume" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                </div>
+
+                <div class="form-group flex gap-3 flex-wrap">
+                    <label class="flex gap-2" style="cursor: pointer; align-items: center;">
+                        <input type="checkbox" name="background_ambiance" class="toggle-checkbox"> Background Office Ambiance
+                    </label>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem; color: var(--accent-gold);">Human Handoff</h4>
+                <div class="grid grid-2" style="margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label class="flex gap-2" style="cursor: pointer; align-items: flex-start;">
+                            <input type="checkbox" name="transfer_enabled" id="transferEnabled"> Enable Call Transfer
+                        </label>
+                    </div>
+                    <div class="form-group" id="transferNumberGroup" style="display: none;">
+                        <label class="form-label">Transfer Phone Number</label>
+                        <input type="tel" class="form-input" name="transfer_number" placeholder="+91 98765 43210">
+                    </div>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem; color: var(--accent-gold);">Objection Handling</h4>
+                <div id="objectionsContainer">
+                    <div class="objection-row card" style="padding: 1rem; margin-bottom: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <input type="text" class="form-input" placeholder="Trigger phrase (e.g., 'too expensive')" style="flex: 1; min-width: 200px;" name="objection_trigger[]">
+                        <textarea class="form-input" placeholder="AI response" style="flex: 1; min-width: 200px; min-height: 60px;" name="objection_response[]"></textarea>
+                        <select class="form-select" name="objection_action[]" style="min-width: 150px;">
+                            <option value="">Continue</option>
+                            <option value="transfer">Transfer to Human</option>
+                            <option value="end_call">End Call</option>
+                        </select>
+                        <button type="button" class="btn btn-ghost btn-icon" onclick="removeObjectionRow(this)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" onclick="addObjectionRow()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Add Objection Rule</button>
+
+                <h4 style="margin: 1.5rem 0 1rem; color: var(--accent-gold);">Knowledge Base</h4>
+                <div id="knowledgeContainer">
+                    <div class="knowledge-row card" style="padding: 1rem; margin-bottom: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <input type="text" class="form-input" placeholder="Question/Topic" style="flex: 1; min-width: 200px;" name="kb_question[]">
+                        <textarea class="form-input" placeholder="Answer" style="flex: 1; min-width: 200px; min-height: 60px;" name="kb_answer[]"></textarea>
+                        <input type="text" class="form-input" placeholder="Category (optional)" style="min-width: 150px;" name="kb_category[]">
+                        <button type="button" class="btn btn-ghost btn-icon" onclick="removeKnowledgeRow(this)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" onclick="addKnowledgeRow()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Add Knowledge Item</button>
+                <p class="form-help mt-2">Upload PDF/TXT files for bulk knowledge base import (feature coming soon)</p>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('agentModal')">Cancel</button>
+                <button type="submit" form="agentForm" class="btn btn-primary">Save Agent</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/agents.js"></script>
+</body>
+</html>

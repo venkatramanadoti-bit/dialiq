@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DialIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="flex-center" style="min-height: 100vh; padding: 2rem;">
+        <div class="card" style="width: 100%; max-width: 480px;">
+            <div class="text-center mb-4">
+                <a href="/" class="navbar-brand" style="justify-content: center; margin-bottom: 1rem;">
+                    <div class="logo">📞</div>
+                    <span>DialIQ</span>
+                </a>
+                <h2>Create Your Account</h2>
+                <p class="mt-2">Start automating your outbound calls today</p>
+            </div>
+
+            <form id="registerForm">
+                <div class="grid grid-2" style="gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First Name</label>
+                        <input type="text" class="form-input" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last Name</label>
+                        <input type="text" class="form-input" id="lastName" name="lastName" placeholder="Doe" required autocomplete="family-name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Work Email</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <input type="email" class="form-input" id="email" name="email" placeholder="john@company.com" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="company">Company Name</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 21H2"></path>
+                            <path d="M22 17H2"></path>
+                            <path d="M2 7v4h3a2 2 0 0 0 2-2V7"></path>
+                            <path d="M22 7v4h-3a2 2 0 0 1-2-2V7"></path>
+                        </svg>
+                        <input type="text" class="form-input" id="company" name="company" placeholder="Acme Inc." required autocomplete="organization">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number (with country code)</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <input type="tel" class="form-input" id="phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <input type="password" class="form-input" id="password" name="password" placeholder="Min 8 characters" required autocomplete="new-password" minlength="8">
+                    </div>
+                    <p class="form-help">Must be at least 8 characters</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <input type="password" class="form-input" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="flex gap-2" style="cursor: pointer; font-size: 0.9rem; color: var(--text-muted);">
+                        <input type="checkbox" name="terms" id="terms" required style="width: 18px; height: 18px; accent-color: var(--accent-gold);">
+                        I agree to the <a href="/terms" style="color: var(--accent-gold);">Terms of Service</a> and <a href="/privacy" style="color: var(--accent-gold);">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full btn-lg">Create Account</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <p style="color: var(--text-muted);">Already have an account? <a href="/login">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalHtml = btn.innerHTML;
+
+            const password = form.password.value;
+            const confirmPassword = form.confirmPassword.value;
+
+            if (password !== confirmPassword) {
+                DialIQ.showToast('Passwords do not match', 'error');
+                return;
+            }
+
+            if (password.length < 8) {
+                DialIQ.showToast('Password must be at least 8 characters', 'error');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner spinner-sm"></span> Creating account...';
+
+            try {
+                const formData = new FormData(form);
+                const data = {
+                    email: formData.get('email'),
+                    password: formData.get('password'),
+                    full_name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+                    company_name: formData.get('company'),
+                    phone: formData.get('phone')
+                };
+
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.detail || 'Registration failed');
+                }
+
+                localStorage.setItem('dialiq_token', result.access_token);
+                localStorage.setItem('dialiq_user', JSON.stringify(result.user));
+
+                DialIQ.showToast('Account created successfully!', 'success');
+                setTimeout(() => window.location.href = '/dashboard', 1000);
+            } catch (error) {
+                DialIQ.showToast(error.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHtml;
+            }
+        });
+    </script>
+</body>
+</html>

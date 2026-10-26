@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leads & CRM - DialIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><a href="/dashboard" class="sidebar-brand"><div class="logo" style="width: 36px; height: 36px;">📞</div><span>DialIQ</span></a></div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item"><a href="/dashboard" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span class="sidebar-nav-label">Dashboard</span></a></li>
+                <li class="sidebar-nav-item"><a href="/agents" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="sidebar-nav-label">AI Agents</span></a></li>
+                <li class="sidebar-nav-item"><a href="/campaigns" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13.67A5 5 0 0 0 18 9a5 5 0 0 0-8.87-2.17 3 3 0 0 0 0 5.66A5 5 0 0 1 18 15a5 5 0 0 1 3 7.34"></path><path d="M22 12h-4"></path></svg><span class="sidebar-nav-label">Campaigns</span></a></li>
+                <li class="sidebar-nav-item"><a href="/leads" class="sidebar-nav-link active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="sidebar-nav-label">Leads & CRM</span></a></li>
+                <li class="sidebar-nav-item"><a href="/calls" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span class="sidebar-nav-label">Call Logs</span></a></li>
+                <li class="sidebar-nav-item"><a href="/analytics" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span class="sidebar-nav-label">Analytics</span></a></li>
+                <li class="sidebar-nav-item"><a href="/wallet" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg><span class="sidebar-nav-label">Wallet & Billing</span></a></li>
+                <li class="sidebar-nav-item"><a href="/simulator" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span class="sidebar-nav-label">Call Simulator</span></a></li>
+                <li class="sidebar-nav-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-gold);"><a href="/settings" class="sidebar-nav-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span class="sidebar-nav-label">Settings</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="dashboard-header flex-between">
+            <div class="dashboard-title"><h1>Leads & CRM</h1><p>Manage your contacts and track lead progress</p></div>
+            <div class="flex gap-2">
+                <button class="btn btn-secondary" onclick="openModal('importModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Import CSV</button>
+                <button class="btn btn-primary" onclick="openModal('leadModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Add Lead</button>
+            </div>
+        </header>
+
+        <div class="flex gap-2 flex-wrap mb-3" style="align-items: center;">
+            <input type="text" class="form-input" id="leadSearch" placeholder="Search leads..." style="max-width: 300px;" onkeyup="filterLeads()">
+            <select class="form-select" id="dispositionFilter" onchange="filterLeads()" style="width: auto;">
+                <option value="">All Dispositions</option>
+                <option value="hot_lead">Hot Lead</option>
+                <option value="callback_requested">Callback Requested</option>
+                <option value="not_interested">Not Interested</option>
+                <option value="voicemail">Voicemail</option>
+                <option value="follow_up">Follow Up</option>
+            </select>
+            <select class="form-select" id="campaignFilter" onchange="filterLeads()" style="width: auto;">
+                <option value="">All Campaigns</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table class="table" id="leadsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Campaign</th>
+                        <th>Disposition</th>
+                        <th>Score</th>
+                        <th>Calls</th>
+                        <th>Last Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="leadsBody">
+                    <tr><td colspan="9" class="text-center" style="padding: 2rem; color: var(--text-muted);">Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flex-between mt-3" style="color: var(--text-muted); font-size: 0.9rem;">
+            <span id="leadsCount">0 leads</span>
+            <div class="flex gap-2">
+                <button class="btn btn-ghost btn-sm" id="prevPage" onclick="changePage(-1)" disabled>Previous</button>
+                <button class="btn btn-ghost btn-sm" id="nextPage" onclick="changePage(1)" disabled>Next</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lead Modal -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="modal-title" id="leadModalTitle">Add Lead</h3><button class="modal-close" onclick="closeModal('leadModal')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div>
+            <form id="leadForm" class="modal-body">
+                <input type="hidden" name="id" id="leadId">
+                <div class="grid grid-2"><div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" name="name" placeholder="John Doe"></div><div class="form-group"><label class="form-label">Phone *</label><input type="tel" class="form-input" name="phone" placeholder="+91 98765 43210" required></div></div>
+                <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" name="email" placeholder="john@example.com"></div>
+                <div class="form-group"><label class="form-label">Campaign</label><select class="form-select" name="campaign_id" id="leadCampaign"><option value="">No Campaign</option></select></div>
+                <div class="form-group"><label class="form-label">Disposition</label><select class="form-select" name="disposition" id="leadDisposition"><option value="">None</option><option value="hot_lead">Hot Lead</option><option value="callback_requested">Callback Requested</option><option value="not_interested">Not Interested</option><option value="voicemail">Voicemail</option><option value="follow_up">Follow Up</option></select></div>
+                <div class="form-group"><label class="form-label">Score</label><input type="number" class="form-input" name="score" min="0" max="100" value="0"></div>
+                <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea" name="notes" placeholder="Additional notes"></textarea></div>
+            </form>
+            <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="closeModal('leadModal')">Cancel</button><button type="submit" form="leadForm" class="btn btn-primary">Save Lead</button></div>
+        </div>
+    </div>
+
+    <!-- Import Modal -->
+    <div class="modal-overlay" id="importModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="modal-title">Import Leads from CSV</h3><button class="modal-close" onclick="closeModal('importModal')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div>
+            <form id="importForm" class="modal-body" enctype="multipart/form-data">
+                <div class="form-group"><label class="form-label">Campaign (Optional)</label><select class="form-select" name="campaign_id" id="importCampaign"><option value="">No Campaign</option></select></div>
+                <div class="form-group"><label class="form-label">CSV File *</label><input type="file" class="form-input" name="file" accept=".csv" required><p class="form-help">CSV should have columns: name, phone, email, and any custom fields</p></div>
+                <div class="form-group"><label class="form-label">Sample Format</label><pre style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-muted); overflow-x: auto;">name,phone,email,company,city
+John Doe,+919876543210,john@example.com,Acme Inc,Mumbai
+Jane Smith,+919876543211,jane@example.com,Globex Corp,Delhi</pre></div>
+            </form>
+            <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="closeModal('importModal')">Cancel</button><button type="submit" form="importForm" class="btn btn-primary">Import Leads</button></div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/leads.js"></script>
+</body>
+</html>
